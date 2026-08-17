@@ -1,18 +1,24 @@
-import { useState } from 'react'
-
-import PatientsForm from "./components/PatientsForm";
+import { useState } from "react";
+import PatientForm from "./components/PatientsForm";
+import PatientList from "./components/PatientList";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [patients, setPatients] = useState([]);
+
+  const addPatient = (newPatient) => {
+    setPatients([...patients, newPatient]);
+  };
 
   return (
     <>
-      <h1>Hospital Patient Manager</h1>
+      <h2>Hospital Patient Manager</h2>
 
-      <PatientsForm/>
-      <PatientsForm patientName={username} Age={age} Department={Department} />
+      <PatientForm addPatient={addPatient} />
+
+      <PatientList patients={patients} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

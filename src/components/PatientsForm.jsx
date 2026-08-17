@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-const PatientsForm = () => {
-
-    const [patients, setPatients] = useState([]);
-
+const PatientForm = ({ addPatient }) => {
     const [patientName, setPatientName] = useState("");
     const [age, setAge] = useState("");
     const [department, setDepartment] = useState("");
@@ -14,15 +11,19 @@ const PatientsForm = () => {
         const newPatient = {
             patientName,
             age,
-            department,
+            department
         };
 
-        setPatients([...patients, newPatient]);
-    }
+        addPatient(newPatient);
+
+        setPatientName("");
+        setAge("");
+        setDepartment("");
+    };
 
     return (
         <>
-            <h2>Form: </h2>
+            <h3>Add Patient</h3>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -46,12 +47,10 @@ const PatientsForm = () => {
                     onChange={(e) => setDepartment(e.target.value)}
                 />
 
-                <button type="submit">
-                    Add Patient
-                </button>
+                <button type="submit">Add Patient</button>
             </form>
         </>
     );
-}
+};
 
-export default PatientsForm;
+export default PatientForm;
