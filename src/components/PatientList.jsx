@@ -5,6 +5,7 @@ const PatientList = ({ patients }) => {
         <>
             <h3>Patients</h3>
             <ul>
+                <p>List of patients</p>
                 {patients.map((patient, index) => (
                     <PatientItem
                         patient={patient}

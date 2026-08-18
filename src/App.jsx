@@ -4,6 +4,7 @@ import PatientList from "./components/PatientList";
 import "./App.css";
 
 function App() {
+  
   const [patients, setPatients] = useState([]);
 
   const addPatient = (newPatient) => {
